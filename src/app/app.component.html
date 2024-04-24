@@ -1,31 +1,33 @@
 <div class="container">
   <h1>This is the fruit table</h1>
-
-  <div class="row">
-    <div class="col-3">
-      <form class="row row-cols-sm-auto">
-        <div class="col-12">
-          <div class="input-group">
-            <input class="form-control"
-                   placeholder="yyyy-mm-dd"
-                   name="dp"
-                   [(ngModel)]="model" (ngModelChange)="updateBasedOnDate($event)"
-                   ngbDatepicker
-                   #d="ngbDatepicker" />
-            <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"></button>
-          </div>
-        </div>
-      </form>
+  <div class="d-flex justify-content-between">
+    <div>
+      <div class="input-group">
+        <input class="form-control"
+               placeholder="yyyy-mm-dd"
+               name="dp"
+               [(ngModel)]="model" (ngModelChange)="updateBasedOnDate($event)"
+               ngbDatepicker
+               #d="ngbDatepicker" />
+        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"></button>
+        <span style="text-decoration:underline; cursor:pointer; padding:10px;" (click)="reset()"> Clear</span>
+      </div>
     </div>
-    <div class="col-2">
-      <span style="text-decoration:underline; cursor:pointer;" (click)="reset()"> Clear</span>
+    <div>
+      <span class="p-input-icon-left">
+        <i class="bi bi-search"></i>
+        <input type="text" pInputText [(ngModel)]="searchValue" (ngModelChange)="search($event)"/>
+        <!--<i class="bi bi-search"></i>
+        <span style="text-decoration:underline; cursor:pointer; padding:10px;" (click)="reset()"> Clear</span>-->
+        <i class="bi bi-x-circle" style="cursor:pointer;" (click)="reset()" pTooltip="Clear"></i>
+      </span>
     </div>
   </div>
   <hr />
 
 
   <div class="card">
-    <p-table [value]="filteredFruits2"
+    <p-table [value]="filteredFruits"
              styleClass="p-datatable-striped"
              [paginator]="true"
              [rows]="5"
@@ -53,7 +55,7 @@
           <td>{{ fruit.weight }}</td>
           <td> <span style="display:block; border:1px solid black; border-radius:5px; color:black; text-align:center;" [ngStyle]="{'background-color': fruit.color}">{{ fruit.color }}</span></td>
           <td>{{ fruit.price | currency}}</td>
-          <td>{{ fruit.datePicked | date }}</td>
+          <td>{{ fruit.datePicked | date: 'shortDate' }}</td>
           <td>
             @if(fruit.hasSeed){
             <i class="bi bi-check-circle" style="color:forestgreen;"></i>
