@@ -43,6 +43,7 @@
 
       <ng-template pTemplate="header">
         <tr>
+          <th>Fruit Type</th>
           <th>Weight</th>
           <th>Color</th>
           <th>Price</th>
@@ -52,6 +53,7 @@
       </ng-template>
       <ng-template pTemplate="body" let-fruit>
         <tr>
+          <td>{{ fruit.name }}</td>
           <td>{{ fruit.weight }}</td>
           <td> <span style="display:block; border:1px solid black; border-radius:5px; color:black; text-align:center;" [ngStyle]="{'background-color': fruit.color}">{{ fruit.color }}</span></td>
           <td>{{ fruit.price | currency}}</td>

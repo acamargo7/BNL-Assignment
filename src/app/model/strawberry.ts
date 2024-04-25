@@ -1,13 +1,15 @@
 import { Fruit } from "./fruit";
 
 export class Strawberry implements Fruit {
+  name: string;
   weight: number;
   color: string;
   price: number;
   datePicked: Date;
   hasSeed: boolean;
 
-  constructor(weight: number, color: string, price: number, datePicked: Date, hasSeed: boolean) {
+  constructor(name: string, weight: number, color: string, price: number, datePicked: Date, hasSeed: boolean) {
+    this.name = name;
     this.weight = weight;
     this.color = color;
     this.price = price;

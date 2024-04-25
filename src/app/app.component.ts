@@ -80,6 +80,7 @@ export class AppComponent implements OnInit {
         else if (fruit.price.toString().includes(searchTerm)) { return true }
         else if (datePicked.includes(searchTerm)) { return true; }
         else if (fruit.weight == searchTerm) { return true; }
+        else if (fruit.name.toLowerCase().includes(searchTerm)) { return true; }
         else { return false; }
       });
 
