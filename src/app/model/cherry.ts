@@ -16,5 +16,7 @@ export class Cherry implements Fruit {
   }
     public madeEditable(): void {
       //takes 55-90 days to ripen
+      //check the day and compare with the number of days to ripe
+      //check color to see if it matches the color of when it's ripen
     }
 }

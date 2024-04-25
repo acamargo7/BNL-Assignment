@@ -18,5 +18,7 @@ export class Apple implements Fruit {
 
   public madeEditable(): void {
     //red - 135 - 155 days
+    //check the day and compare with the number of days to ripe
+    //check color to see if it matches the color of when it's ripen
   }
 }

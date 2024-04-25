@@ -17,5 +17,7 @@ export class Banana implements Fruit {
 
   public madeEditable(): void {
     //takes 3-5 days to ripen
+    //check the day and compare with the number of days to ripe
+    //check color to see if it matches the color of when it's ripen
   }  
 }
